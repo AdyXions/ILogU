@@ -48,6 +48,7 @@ const onClose = () => {
             <VTextarea
               v-model="content"
               readonly
+              class="h-75"
             />
           </VCol>
         </VCardText>
