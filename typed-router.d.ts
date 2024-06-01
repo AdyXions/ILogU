@@ -43,6 +43,11 @@ declare module 'vue-router/auto/routes' {
     '$error': RouteRecordInfo<'$error', '/:error(.*)', { error: ParamValue<true> }, { error: ParamValue<false> }>,
     'login': RouteRecordInfo<'login', '/login', Record<never, never>, Record<never, never>>,
     'second-page': RouteRecordInfo<'second-page', '/second-page', Record<never, never>, Record<never, never>>,
+    'server-directory': RouteRecordInfo<'server-directory', '/server/directory', Record<never, never>, Record<never, never>>,
+    'server-logs': RouteRecordInfo<'server-logs', '/server/logs', Record<never, never>, Record<never, never>>,
+    'settings-audit-trail': RouteRecordInfo<'settings-audit-trail', '/settings/audit-trail', Record<never, never>, Record<never, never>>,
+    'settings-environment': RouteRecordInfo<'settings-environment', '/settings/environment', Record<never, never>, Record<never, never>>,
+    'settings-users': RouteRecordInfo<'settings-users', '/settings/users', Record<never, never>, Record<never, never>>,
   }
 }
 
