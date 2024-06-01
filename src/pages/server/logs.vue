@@ -1,0 +1,3 @@
+<template>
+  Logs Placeholder
+</template>

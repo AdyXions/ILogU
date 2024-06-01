@@ -47,6 +47,11 @@ declare module 'vue-router/auto/routes' {
     'server-id-dashboard': RouteRecordInfo<'server-id-dashboard', '/server/:id/dashboard', { id: ParamValue<true> }, { id: ParamValue<false> }>,
     'server-id-directories': RouteRecordInfo<'server-id-directories', '/server/:id/directories', { id: ParamValue<true> }, { id: ParamValue<false> }>,
     'server-id-logs': RouteRecordInfo<'server-id-logs', '/server/:id/logs', { id: ParamValue<true> }, { id: ParamValue<false> }>,
+    'server-directory': RouteRecordInfo<'server-directory', '/server/directory', Record<never, never>, Record<never, never>>,
+    'server-logs': RouteRecordInfo<'server-logs', '/server/logs', Record<never, never>, Record<never, never>>,
+    'settings-audit-trail': RouteRecordInfo<'settings-audit-trail', '/settings/audit-trail', Record<never, never>, Record<never, never>>,
+    'settings-environment': RouteRecordInfo<'settings-environment', '/settings/environment', Record<never, never>, Record<never, never>>,
+    'settings-users': RouteRecordInfo<'settings-users', '/settings/users', Record<never, never>, Record<never, never>>,
   }
 }
 
