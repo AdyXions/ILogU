@@ -1,6 +1,4 @@
 <script setup>
-import { ref } from 'vue'
-
 
 const router = useRouter()
 
@@ -43,7 +41,7 @@ const fetchServers = async () => {
       },
     })
 
-    console.log(response.data.ssh_tokens)
+    // console.log(response.data.ssh_tokens)
 
     items.value = response.data.ssh_tokens.map(item => ({
       id: item.id,
