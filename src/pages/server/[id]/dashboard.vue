@@ -12,9 +12,29 @@ const headers = [
   { title: 'Mounted On', key: '' },
 ]
 
-const sample = ref({
-  
+const data = ref({
+  osInformation: null,
+  serverSpecification: null,
+
 })
+
+const getData = async () => {
+  const response = await $api('/ssh', {
+    method: 'POST',
+    header: {
+      'Content-Type': "application/json",
+    },
+    body: JSON.stringify({
+      "command": "cat /etc/os-release",
+    }),
+    redirect: "follow",
+  })
+
+  data.value.osInformation =  (await response.text()).split('\n').map(item => item.split("=")).slice(0, 8)
+  
+}
+
+await getData()
 </script>
 
 <template>
@@ -97,19 +117,28 @@ const sample = ref({
       <VCard>
         <VCardText>
           <VRow>
-            <VCol cols="2">
+            <VCol cols="12">
               <VImg :src="linux" />
             </VCol>
-            <VCol>
+            <VCol cols="6">
               <VCard>
                 <VCardText>
                   <span class="font-weight-medium">
                     OS INFORMATION
                   </span>
+
+                  <div
+                    v-for="(item, key ) in data.osInformation"
+                    :key="key"
+                    class="d-flex flex-row"
+                  >
+                    {{ item[0] }}: <VSpacer /> {{ item[1] }}
+                  </div>
                 </VCardText>
               </VCard>
-
-              <VCard class="mt-3">
+            </VCol>
+            <VCol cols="6">
+              <VCard>
                 <VCardText>
                   <span class="font-weight-medium">
                     SERVER SPECIFICATION
@@ -155,7 +184,6 @@ const sample = ref({
 
           <VDataTable
             :headers="headers"
-            :items="data"
             :items-per-page="5"
             class="text-no-wrap"
           >

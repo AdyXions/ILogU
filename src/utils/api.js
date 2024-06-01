@@ -1,9 +1,9 @@
 import { ofetch } from 'ofetch'
 
 export const $api = ofetch.create({
-  baseURL: import.meta.env.VITE_API_BASE_URL || '/api',
+  baseURL: 'https://ilogu-api.gabsbiler.com',
   async onRequest({ options }) {
-    const accessToken = useCookie('accessToken').value
+    const accessToken = 'AV1z9ac7ZVZrQYPofC0ml8yEh6ikpRML'
     if (accessToken) {
       options.headers = {
         ...options.headers,
