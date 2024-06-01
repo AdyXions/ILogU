@@ -358,6 +358,9 @@
     "getSpecification": true,
     "getVolumes": true,
     "getDirectory": true,
-    "getDate": true
+    "getDate": true,
+    "getFile": true,
+    "renameFile": true,
+    "deleteFile": true
   }
 }

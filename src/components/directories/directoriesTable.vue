@@ -2,6 +2,8 @@
 import { getDirectory } from "@/composables/useDirectories"
 import { getDate } from "@/composables/useTextFormat"
 import viewDialog from "@/components/dialogs/directory/viewDialog.vue"
+import editDialog from "@/components/dialogs/directory/editDialog.vue"
+import deleteDialog from  "@/components/dialogs/directory/deleteDialog.vue"
 
 const props = defineProps({
   user: {
@@ -44,22 +46,32 @@ const appendFolder = async folder => {
   await onQuery()
 }
 
-const onView = () => {
+const selectedFile = ref(null)
+
+const onView = item => {
+  selectedFile.value = item
   viewLog.value = true
 }
 
-const onEdit = () => {
+const onEdit = item => {
+  selectedFile.value = item
   editLog.value = true
 }
 
-const onDelete = () => {
+const onDelete = item => {
+  selectedFile.value = item
   deleteLog.value = true
 }
 
 const onClose = () => {
+  selectedFile.value = null
   viewLog.value = false
   editLog.value = false
   deleteLog.value = false
+}
+
+const onUpdate = async () => {
+  await onQuery()
 }
 </script>
 
@@ -114,24 +126,30 @@ const onClose = () => {
                 </span>
                 <VMenu activator="parent">
                   <VList>
-                    <VListItem link>
-                      <template
-                        #prepend
-                        @click="onView"
-                      >
+                    <VListItem
+                      link
+                      @click="onView(item.name)"
+                    >
+                      <template #prepend>
                         <VIcon icon="ri-eye-line" />
                       </template>
                       <VListItemTitle>View</VListItemTitle>
                     </VListItem>
 
-                    <VListItem link>
+                    <VListItem
+                      link
+                      @click="onEdit(item.name)"
+                    >
                       <template #prepend>
                         <VIcon icon="ri-edit-box-line" />
                       </template>
                       <VListItemTitle>Rename</VListItemTitle>
                     </VListItem>
 
-                    <VListItem link>
+                    <VListItem
+                      link
+                      @click="onDelete(item.name)"
+                    >
                       <template #prepend>
                         <VIcon icon="ri-delete-bin-line" />
                       </template>
@@ -165,10 +183,43 @@ const onClose = () => {
 
   <VDialog
     v-model="viewLog"
-    :max-width="500"
+    :max-width="600"
     persistent
   >
-    <ViewDialog />
+    <ViewDialog
+      :id="parseInt(serverId)"
+      :query="query"
+      :file-name="selectedFile"
+      @close="onClose"
+    />
+  </VDialog>
+
+  <VDialog
+    v-model="editLog"
+    :max-width="600"
+    persistent
+  >
+    <EditDialog 
+      :id="parseInt(serverId)"
+      :query="query"
+      :file-name="selectedFile"
+      @close="onClose"
+      @update="onUpdate"
+    />
+  </VDialog>
+
+  <VDialog
+    v-model="deleteLog"
+    :max-width="600"
+    persistent
+  >
+    <DeleteDialog
+      :id="parseInt(serverId)"
+      :query="query"
+      :file-name="selectedFile"
+      @close="onClose"
+      @update="onUpdate"
+    />
   </VDialog>
 </template>
 
