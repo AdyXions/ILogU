@@ -8,12 +8,12 @@ const route = useRoute()
 const serverId = route.params.id
 
 const headers = [
-  { title: 'File System', key: '' },
-  { title: '1K-Blocks', key: '' },
-  { title: 'Used', key: '' },
-  { title: 'Available', key: '' },
-  { title: 'Use %', key: '' },
-  { title: 'Mounted On', key: '' },
+  { title: 'File System', key: 'Filesystem' },
+  { title: '1K-Blocks', key: '1K-blocks' },
+  { title: 'Used', key: 'Used' },
+  { title: 'Available', key: 'Available' },
+  { title: 'Use %', key: 'Use%' },
+  { title: 'Mounted On', key: 'Mounted' },
 ]
 
 const data = ref({
@@ -23,6 +23,8 @@ const data = ref({
   memoryUsage: await getMemoryUsage(serverId),
   volumes: await getVolumes(serverId),
 })
+
+console.log(data.value.volumes)
 </script>
 
 <template>
@@ -109,7 +111,7 @@ const data = ref({
               <VImg :src="linux" />
             </VCol>
             <VCol cols="6">
-              <VCard>
+              <VCard class="h-100">
                 <VCardText>
                   <span class="font-weight-medium">
                     OS INFORMATION
@@ -120,17 +122,25 @@ const data = ref({
                     :key="key"
                     class="d-flex flex-row"
                   >
-                    {{ item[0] }}: <VSpacer /> {{ item[1] }}
+                    {{ key }}: <VSpacer /> {{ item }}
                   </div>
                 </VCardText>
               </VCard>
             </VCol>
             <VCol cols="6">
-              <VCard>
+              <VCard class="h-100">
                 <VCardText>
                   <span class="font-weight-medium">
                     SERVER SPECIFICATION
                   </span>
+
+                  <div
+                    v-for="(item, key ) in data.serverSpecification"
+                    :key="key"
+                    class="d-flex flex-row"
+                  >
+                    {{ key }}: <VSpacer /> {{ item }}
+                  </div>
                 </VCardText>
               </VCard>
             </VCol>
@@ -143,9 +153,14 @@ const data = ref({
   <VRow>
     <VCol cols="6">
       <VCard>
-        <VCardText>
+        <VCardText class="d-flex flex-row">
           <span class="font-weight-medium">
             CPU LOAD
+          </span>
+
+          <VSpacer />
+          <span>
+            {{ data.cpuUsage }}
           </span>
         </VCardText>
       </VCard>
@@ -153,9 +168,13 @@ const data = ref({
 
     <VCol cols="6">
       <VCard>
-        <VCardText>
+        <VCardText class="d-flex flex-row">
           <span class="font-weight-medium">
             MEMORY
+          </span>
+          <VSpacer />
+          <span>
+            {{ data.memoryUsage }}
           </span>
         </VCardText>
       </VCard>
@@ -172,13 +191,10 @@ const data = ref({
 
           <VDataTable
             :headers="headers"
-            :items-per-page="5"
+            :items="data.volumes"
+            :items-per-page="10"
             class="text-no-wrap"
-          >
-            <template #item.id="{ item }">
-              <span class="text-h6">{{ item.id }}</span>
-            </template>
-          </VDataTable>
+          />
         </VCardText>
       </VCard>
     </VCol>

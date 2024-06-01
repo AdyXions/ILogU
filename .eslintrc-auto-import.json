@@ -352,10 +352,10 @@
     "watchTriggerable": true,
     "watchWithFilter": true,
     "whenever": true,
-    "getOS": true,
-    "getSpecification": true,
     "getCpuUsage": true,
     "getMemoryUsage": true,
+    "getOS": true,
+    "getSpecification": true,
     "getVolumes": true
   }
 }

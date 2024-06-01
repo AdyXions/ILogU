@@ -49,7 +49,9 @@ export const getSpecification = async serverId => {
     entry[key] = value
   })
 
-  return entry
+  delete entry['flags']
+  
+  return(entry)
 }
 
 export const getCpuUsage = async serverId => {
