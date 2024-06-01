@@ -16,9 +16,6 @@ const getUser = async () => {
   } catch (error)  {
     console.log(error)
   }
-  
-
-  
 }
 
 await getUser()

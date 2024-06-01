@@ -1,6 +1,22 @@
 <script setup>
-
 const router = useRouter()
+const route = useRoute()
+
+const serverId = route.params.id
+
+const user = ref()
+
+const getUser = async () => {
+  try {
+    const response = await $api(`/users/me?fields[]=ssh_tokens.user&filter[ssh_tokens][id][_eq]=${serverId}`, { method: "GET" })
+
+    user.value = response.data.ssh_tokens[0].user
+  } catch (error)  {
+    console.log(error)
+  }
+}
+
+await getUser()
 </script>
 
 <template>
@@ -20,9 +36,11 @@ const router = useRouter()
           >
         </h2>
         <h2 class="font-weight-medium">
-          Logs
+          Log Files
         </h2>
       </div>
     </VCol>
   </VRow>
+
+  <LogsTable :user="user" />
 </template>

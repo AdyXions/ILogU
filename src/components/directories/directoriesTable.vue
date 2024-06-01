@@ -1,9 +1,9 @@
 <script setup>
 import { getDirectory } from "@/composables/useDirectories"
 import { getDate } from "@/composables/useTextFormat"
-import viewDialog from "@/components/dialogs/directory/viewDialog.vue"
-import editDialog from "@/components/dialogs/directory/editDialog.vue"
-import deleteDialog from  "@/components/dialogs/directory/deleteDialog.vue"
+import ViewDialog from "@/components/dialogs/directory/viewDialog.vue"
+import EditDialog from "@/components/dialogs/directory/editDialog.vue"
+import DeleteDialog from  "@/components/dialogs/directory/deleteDialog.vue"
 
 const props = defineProps({
   user: {
