@@ -7,7 +7,14 @@ export const headers = ref([
 
 export const users = ref([])
 
-export const getUsers = async (id, email) => {
+export const email = ref('')
+export const firstName = ref('')
+export const lastName = ref('')
+export const password = ref('')
+
+export const emailRule = value => /.+@.+\..+/.test(value) || 'E-mail must be valid.'
+
+export const getUsers = async () => {
   try {
 
     const response =  await $api(`/users`, {
@@ -20,3 +27,17 @@ export const getUsers = async (id, email) => {
     throw error
   }
 }
+export const deleteUser = async userId => {
+  try {
+    await $api(`/users/${userId}`, {
+      method: 'DELETE',
+    })
+
+    // Update the users array after deletion
+    users.value = users.value.filter(user => user.id !== userId)
+  } catch (error) {
+    console.error('Error deleting user:', error)
+    throw error
+  }
+}
+
