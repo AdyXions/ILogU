@@ -373,6 +373,7 @@
     "emailRule": true,
     "saveUsers": true,
     "saveUser": true,
-    "deleteUser": true
+    "deleteUser": true,
+    "consoleCommand": true
   }
 }
