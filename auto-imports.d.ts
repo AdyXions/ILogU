@@ -45,10 +45,14 @@ declare global {
   const definePage: typeof import('unplugin-vue-router/runtime')['_definePage']
   const defineStore: typeof import('pinia')['defineStore']
   const deleteFile: typeof import('./src/composables/useDirectories.js')['deleteFile']
+  const deleteUser: typeof import('./src/composables/useUsersApi.js')['deleteUser']
   const eagerComputed: typeof import('@vueuse/core')['eagerComputed']
   const effectScope: typeof import('vue')['effectScope']
+  const email: typeof import('./src/composables/useUsersApi.js')['email']
+  const emailRule: typeof import('./src/composables/useUsersApi.js')['emailRule']
   const emailValidator: typeof import('./src/@core/utils/validators.js')['emailValidator']
   const extendRef: typeof import('@vueuse/core')['extendRef']
+  const firstName: typeof import('./src/composables/useUsersApi.js')['firstName']
   const formatDate: typeof import('./src/@core/utils/formatters.js')['formatDate']
   const formatDateToMonthShort: typeof import('./src/@core/utils/formatters.js')['formatDateToMonthShort']
   const getActivePinia: typeof import('pinia')['getActivePinia']
@@ -62,8 +66,10 @@ declare global {
   const getMemoryUsage: typeof import('./src/composables/useSsh.js')['getMemoryUsage']
   const getOS: typeof import('./src/composables/useSsh.js')['getOS']
   const getSpecification: typeof import('./src/composables/useSsh.js')['getSpecification']
+  const getUsers: typeof import('./src/composables/useUsersApi.js')['getUsers']
   const getVolumes: typeof import('./src/composables/useSsh.js')['getVolumes']
   const h: typeof import('vue')['h']
+  const headers: typeof import('./src/composables/useUsersApi.js')['headers']
   const healthCheck: typeof import('./src/composables/useSsh.js')['healthCheck']
   const ignorableWatch: typeof import('@vueuse/core')['ignorableWatch']
   const inject: typeof import('vue')['inject']
@@ -80,6 +86,7 @@ declare global {
   const isRef: typeof import('vue')['isRef']
   const isToday: typeof import('./src/@core/utils/helpers.js')['isToday']
   const kFormatter: typeof import('./src/@core/utils/formatters.js')['kFormatter']
+  const lastName: typeof import('./src/composables/useUsersApi.js')['lastName']
   const lengthValidator: typeof import('./src/@core/utils/validators.js')['lengthValidator']
   const logicAnd: typeof import('@vueuse/math')['logicAnd']
   const logicNot: typeof import('@vueuse/math')['logicNot']
@@ -112,6 +119,7 @@ declare global {
   const onUnmounted: typeof import('vue')['onUnmounted']
   const onUpdated: typeof import('vue')['onUpdated']
   const paginationMeta: typeof import('./src/utils/paginationMeta.js')['paginationMeta']
+  const password: typeof import('./src/composables/useUsersApi.js')['password']
   const passwordValidator: typeof import('./src/@core/utils/validators.js')['passwordValidator']
   const pausableWatch: typeof import('@vueuse/core')['pausableWatch']
   const prefixWithPlus: typeof import('./src/@core/utils/formatters.js')['prefixWithPlus']
@@ -138,6 +146,8 @@ declare global {
   const resolveRef: typeof import('@vueuse/core')['resolveRef']
   const resolveUnref: typeof import('@vueuse/core')['resolveUnref']
   const resolveVuetifyTheme: typeof import('./src/@core/utils/vuetify.js')['resolveVuetifyTheme']
+  const saveUser: typeof import('./src/composables/useUsersApi.js')['saveUser']
+  const saveUsers: typeof import('./src/composables/useUsersApi.js')['saveUsers']
   const setActivePinia: typeof import('pinia')['setActivePinia']
   const setMapStoreSuffix: typeof import('pinia')['setMapStoreSuffix']
   const shallowReactive: typeof import('vue')['shallowReactive']
@@ -342,6 +352,7 @@ declare global {
   const useWindowFocus: typeof import('@vueuse/core')['useWindowFocus']
   const useWindowScroll: typeof import('@vueuse/core')['useWindowScroll']
   const useWindowSize: typeof import('@vueuse/core')['useWindowSize']
+  const users: typeof import('./src/composables/useUsersApi.js')['users']
   const watch: typeof import('vue')['watch']
   const watchArray: typeof import('@vueuse/core')['watchArray']
   const watchAtMost: typeof import('@vueuse/core')['watchAtMost']
@@ -409,10 +420,14 @@ declare module 'vue' {
     readonly definePage: UnwrapRef<typeof import('unplugin-vue-router/runtime')['_definePage']>
     readonly defineStore: UnwrapRef<typeof import('pinia')['defineStore']>
     readonly deleteFile: UnwrapRef<typeof import('./src/composables/useDirectories.js')['deleteFile']>
+    readonly deleteUser: UnwrapRef<typeof import('./src/composables/useUsersApi.js')['deleteUser']>
     readonly eagerComputed: UnwrapRef<typeof import('@vueuse/core')['eagerComputed']>
     readonly effectScope: UnwrapRef<typeof import('vue')['effectScope']>
+    readonly email: UnwrapRef<typeof import('./src/composables/useUsersApi.js')['email']>
+    readonly emailRule: UnwrapRef<typeof import('./src/composables/useUsersApi.js')['emailRule']>
     readonly emailValidator: UnwrapRef<typeof import('./src/@core/utils/validators.js')['emailValidator']>
     readonly extendRef: UnwrapRef<typeof import('@vueuse/core')['extendRef']>
+    readonly firstName: UnwrapRef<typeof import('./src/composables/useUsersApi.js')['firstName']>
     readonly formatDate: UnwrapRef<typeof import('./src/@core/utils/formatters.js')['formatDate']>
     readonly formatDateToMonthShort: UnwrapRef<typeof import('./src/@core/utils/formatters.js')['formatDateToMonthShort']>
     readonly getActivePinia: UnwrapRef<typeof import('pinia')['getActivePinia']>
@@ -425,8 +440,10 @@ declare module 'vue' {
     readonly getMemoryUsage: UnwrapRef<typeof import('./src/composables/useSsh.js')['getMemoryUsage']>
     readonly getOS: UnwrapRef<typeof import('./src/composables/useSsh.js')['getOS']>
     readonly getSpecification: UnwrapRef<typeof import('./src/composables/useSsh.js')['getSpecification']>
+    readonly getUsers: UnwrapRef<typeof import('./src/composables/useUsersApi.js')['getUsers']>
     readonly getVolumes: UnwrapRef<typeof import('./src/composables/useSsh.js')['getVolumes']>
     readonly h: UnwrapRef<typeof import('vue')['h']>
+    readonly headers: UnwrapRef<typeof import('./src/composables/useUsersApi.js')['headers']>
     readonly healthCheck: UnwrapRef<typeof import('./src/composables/useSsh.js')['healthCheck']>
     readonly ignorableWatch: UnwrapRef<typeof import('@vueuse/core')['ignorableWatch']>
     readonly inject: UnwrapRef<typeof import('vue')['inject']>
@@ -443,6 +460,7 @@ declare module 'vue' {
     readonly isRef: UnwrapRef<typeof import('vue')['isRef']>
     readonly isToday: UnwrapRef<typeof import('./src/@core/utils/helpers.js')['isToday']>
     readonly kFormatter: UnwrapRef<typeof import('./src/@core/utils/formatters.js')['kFormatter']>
+    readonly lastName: UnwrapRef<typeof import('./src/composables/useUsersApi.js')['lastName']>
     readonly lengthValidator: UnwrapRef<typeof import('./src/@core/utils/validators.js')['lengthValidator']>
     readonly logicAnd: UnwrapRef<typeof import('@vueuse/math')['logicAnd']>
     readonly logicNot: UnwrapRef<typeof import('@vueuse/math')['logicNot']>
@@ -475,6 +493,7 @@ declare module 'vue' {
     readonly onUnmounted: UnwrapRef<typeof import('vue')['onUnmounted']>
     readonly onUpdated: UnwrapRef<typeof import('vue')['onUpdated']>
     readonly paginationMeta: UnwrapRef<typeof import('./src/utils/paginationMeta.js')['paginationMeta']>
+    readonly password: UnwrapRef<typeof import('./src/composables/useUsersApi.js')['password']>
     readonly passwordValidator: UnwrapRef<typeof import('./src/@core/utils/validators.js')['passwordValidator']>
     readonly pausableWatch: UnwrapRef<typeof import('@vueuse/core')['pausableWatch']>
     readonly prefixWithPlus: UnwrapRef<typeof import('./src/@core/utils/formatters.js')['prefixWithPlus']>
@@ -704,6 +723,7 @@ declare module 'vue' {
     readonly useWindowFocus: UnwrapRef<typeof import('@vueuse/core')['useWindowFocus']>
     readonly useWindowScroll: UnwrapRef<typeof import('@vueuse/core')['useWindowScroll']>
     readonly useWindowSize: UnwrapRef<typeof import('@vueuse/core')['useWindowSize']>
+    readonly users: UnwrapRef<typeof import('./src/composables/useUsersApi.js')['users']>
     readonly watch: UnwrapRef<typeof import('vue')['watch']>
     readonly watchArray: UnwrapRef<typeof import('@vueuse/core')['watchArray']>
     readonly watchAtMost: UnwrapRef<typeof import('@vueuse/core')['watchAtMost']>
@@ -764,10 +784,14 @@ declare module '@vue/runtime-core' {
     readonly definePage: UnwrapRef<typeof import('unplugin-vue-router/runtime')['_definePage']>
     readonly defineStore: UnwrapRef<typeof import('pinia')['defineStore']>
     readonly deleteFile: UnwrapRef<typeof import('./src/composables/useDirectories.js')['deleteFile']>
+    readonly deleteUser: UnwrapRef<typeof import('./src/composables/useUsersApi.js')['deleteUser']>
     readonly eagerComputed: UnwrapRef<typeof import('@vueuse/core')['eagerComputed']>
     readonly effectScope: UnwrapRef<typeof import('vue')['effectScope']>
+    readonly email: UnwrapRef<typeof import('./src/composables/useUsersApi.js')['email']>
+    readonly emailRule: UnwrapRef<typeof import('./src/composables/useUsersApi.js')['emailRule']>
     readonly emailValidator: UnwrapRef<typeof import('./src/@core/utils/validators.js')['emailValidator']>
     readonly extendRef: UnwrapRef<typeof import('@vueuse/core')['extendRef']>
+    readonly firstName: UnwrapRef<typeof import('./src/composables/useUsersApi.js')['firstName']>
     readonly formatDate: UnwrapRef<typeof import('./src/@core/utils/formatters.js')['formatDate']>
     readonly formatDateToMonthShort: UnwrapRef<typeof import('./src/@core/utils/formatters.js')['formatDateToMonthShort']>
     readonly getActivePinia: UnwrapRef<typeof import('pinia')['getActivePinia']>
@@ -780,8 +804,10 @@ declare module '@vue/runtime-core' {
     readonly getMemoryUsage: UnwrapRef<typeof import('./src/composables/useSsh.js')['getMemoryUsage']>
     readonly getOS: UnwrapRef<typeof import('./src/composables/useSsh.js')['getOS']>
     readonly getSpecification: UnwrapRef<typeof import('./src/composables/useSsh.js')['getSpecification']>
+    readonly getUsers: UnwrapRef<typeof import('./src/composables/useUsersApi.js')['getUsers']>
     readonly getVolumes: UnwrapRef<typeof import('./src/composables/useSsh.js')['getVolumes']>
     readonly h: UnwrapRef<typeof import('vue')['h']>
+    readonly headers: UnwrapRef<typeof import('./src/composables/useUsersApi.js')['headers']>
     readonly healthCheck: UnwrapRef<typeof import('./src/composables/useSsh.js')['healthCheck']>
     readonly ignorableWatch: UnwrapRef<typeof import('@vueuse/core')['ignorableWatch']>
     readonly inject: UnwrapRef<typeof import('vue')['inject']>
@@ -798,6 +824,7 @@ declare module '@vue/runtime-core' {
     readonly isRef: UnwrapRef<typeof import('vue')['isRef']>
     readonly isToday: UnwrapRef<typeof import('./src/@core/utils/helpers.js')['isToday']>
     readonly kFormatter: UnwrapRef<typeof import('./src/@core/utils/formatters.js')['kFormatter']>
+    readonly lastName: UnwrapRef<typeof import('./src/composables/useUsersApi.js')['lastName']>
     readonly lengthValidator: UnwrapRef<typeof import('./src/@core/utils/validators.js')['lengthValidator']>
     readonly logicAnd: UnwrapRef<typeof import('@vueuse/math')['logicAnd']>
     readonly logicNot: UnwrapRef<typeof import('@vueuse/math')['logicNot']>
@@ -830,6 +857,7 @@ declare module '@vue/runtime-core' {
     readonly onUnmounted: UnwrapRef<typeof import('vue')['onUnmounted']>
     readonly onUpdated: UnwrapRef<typeof import('vue')['onUpdated']>
     readonly paginationMeta: UnwrapRef<typeof import('./src/utils/paginationMeta.js')['paginationMeta']>
+    readonly password: UnwrapRef<typeof import('./src/composables/useUsersApi.js')['password']>
     readonly passwordValidator: UnwrapRef<typeof import('./src/@core/utils/validators.js')['passwordValidator']>
     readonly pausableWatch: UnwrapRef<typeof import('@vueuse/core')['pausableWatch']>
     readonly prefixWithPlus: UnwrapRef<typeof import('./src/@core/utils/formatters.js')['prefixWithPlus']>
@@ -1059,6 +1087,7 @@ declare module '@vue/runtime-core' {
     readonly useWindowFocus: UnwrapRef<typeof import('@vueuse/core')['useWindowFocus']>
     readonly useWindowScroll: UnwrapRef<typeof import('@vueuse/core')['useWindowScroll']>
     readonly useWindowSize: UnwrapRef<typeof import('@vueuse/core')['useWindowSize']>
+    readonly users: UnwrapRef<typeof import('./src/composables/useUsersApi.js')['users']>
     readonly watch: UnwrapRef<typeof import('vue')['watch']>
     readonly watchArray: UnwrapRef<typeof import('@vueuse/core')['watchArray']>
     readonly watchAtMost: UnwrapRef<typeof import('@vueuse/core')['watchAtMost']>

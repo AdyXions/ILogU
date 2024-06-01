@@ -362,6 +362,17 @@
     "getFile": true,
     "renameFile": true,
     "deleteFile": true,
-    "healthCheck": true
+    "healthCheck": true,
+    "getUsers": true,
+    "headers": true,
+    "users": true,
+    "email": true,
+    "firstName": true,
+    "lastName": true,
+    "password": true,
+    "emailRule": true,
+    "saveUsers": true,
+    "saveUser": true,
+    "deleteUser": true
   }
 }
