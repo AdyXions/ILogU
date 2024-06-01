@@ -362,6 +362,9 @@
     "getFile": true,
     "renameFile": true,
     "deleteFile": true,
-    "healthCheck": true
+    "healthCheck": true,
+    "getUsers": true,
+    "headers": true,
+    "users": true
   }
 }

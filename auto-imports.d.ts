@@ -62,8 +62,10 @@ declare global {
   const getMemoryUsage: typeof import('./src/composables/useSsh.js')['getMemoryUsage']
   const getOS: typeof import('./src/composables/useSsh.js')['getOS']
   const getSpecification: typeof import('./src/composables/useSsh.js')['getSpecification']
+  const getUsers: typeof import('./src/composables/useUsersApi.js')['getUsers']
   const getVolumes: typeof import('./src/composables/useSsh.js')['getVolumes']
   const h: typeof import('vue')['h']
+  const headers: typeof import('./src/composables/useUsersApi.js')['headers']
   const healthCheck: typeof import('./src/composables/useSsh.js')['healthCheck']
   const ignorableWatch: typeof import('@vueuse/core')['ignorableWatch']
   const inject: typeof import('vue')['inject']
@@ -342,6 +344,7 @@ declare global {
   const useWindowFocus: typeof import('@vueuse/core')['useWindowFocus']
   const useWindowScroll: typeof import('@vueuse/core')['useWindowScroll']
   const useWindowSize: typeof import('@vueuse/core')['useWindowSize']
+  const users: typeof import('./src/composables/useUsersApi.js')['users']
   const watch: typeof import('vue')['watch']
   const watchArray: typeof import('@vueuse/core')['watchArray']
   const watchAtMost: typeof import('@vueuse/core')['watchAtMost']
@@ -426,8 +429,10 @@ declare module 'vue' {
     readonly getMemoryUsage: UnwrapRef<typeof import('./src/composables/useSsh.js')['getMemoryUsage']>
     readonly getOS: UnwrapRef<typeof import('./src/composables/useSsh.js')['getOS']>
     readonly getSpecification: UnwrapRef<typeof import('./src/composables/useSsh.js')['getSpecification']>
+    readonly getUsers: UnwrapRef<typeof import('./src/composables/useUsersApi.js')['getUsers']>
     readonly getVolumes: UnwrapRef<typeof import('./src/composables/useSsh.js')['getVolumes']>
     readonly h: UnwrapRef<typeof import('vue')['h']>
+    readonly headers: UnwrapRef<typeof import('./src/composables/useUsersApi.js')['headers']>
     readonly healthCheck: UnwrapRef<typeof import('./src/composables/useSsh.js')['healthCheck']>
     readonly ignorableWatch: UnwrapRef<typeof import('@vueuse/core')['ignorableWatch']>
     readonly inject: UnwrapRef<typeof import('vue')['inject']>
@@ -706,6 +711,7 @@ declare module 'vue' {
     readonly useWindowFocus: UnwrapRef<typeof import('@vueuse/core')['useWindowFocus']>
     readonly useWindowScroll: UnwrapRef<typeof import('@vueuse/core')['useWindowScroll']>
     readonly useWindowSize: UnwrapRef<typeof import('@vueuse/core')['useWindowSize']>
+    readonly users: UnwrapRef<typeof import('./src/composables/useUsersApi.js')['users']>
     readonly watch: UnwrapRef<typeof import('vue')['watch']>
     readonly watchArray: UnwrapRef<typeof import('@vueuse/core')['watchArray']>
     readonly watchAtMost: UnwrapRef<typeof import('@vueuse/core')['watchAtMost']>
@@ -783,8 +789,10 @@ declare module '@vue/runtime-core' {
     readonly getMemoryUsage: UnwrapRef<typeof import('./src/composables/useSsh.js')['getMemoryUsage']>
     readonly getOS: UnwrapRef<typeof import('./src/composables/useSsh.js')['getOS']>
     readonly getSpecification: UnwrapRef<typeof import('./src/composables/useSsh.js')['getSpecification']>
+    readonly getUsers: UnwrapRef<typeof import('./src/composables/useUsersApi.js')['getUsers']>
     readonly getVolumes: UnwrapRef<typeof import('./src/composables/useSsh.js')['getVolumes']>
     readonly h: UnwrapRef<typeof import('vue')['h']>
+    readonly headers: UnwrapRef<typeof import('./src/composables/useUsersApi.js')['headers']>
     readonly healthCheck: UnwrapRef<typeof import('./src/composables/useSsh.js')['healthCheck']>
     readonly ignorableWatch: UnwrapRef<typeof import('@vueuse/core')['ignorableWatch']>
     readonly inject: UnwrapRef<typeof import('vue')['inject']>
@@ -1063,6 +1071,7 @@ declare module '@vue/runtime-core' {
     readonly useWindowFocus: UnwrapRef<typeof import('@vueuse/core')['useWindowFocus']>
     readonly useWindowScroll: UnwrapRef<typeof import('@vueuse/core')['useWindowScroll']>
     readonly useWindowSize: UnwrapRef<typeof import('@vueuse/core')['useWindowSize']>
+    readonly users: UnwrapRef<typeof import('./src/composables/useUsersApi.js')['users']>
     readonly watch: UnwrapRef<typeof import('vue')['watch']>
     readonly watchArray: UnwrapRef<typeof import('@vueuse/core')['watchArray']>
     readonly watchAtMost: UnwrapRef<typeof import('@vueuse/core')['watchAtMost']>
