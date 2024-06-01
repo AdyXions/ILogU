@@ -108,38 +108,59 @@ console.log(data.value.volumes)
         <VCardText>
           <VRow>
             <VCol cols="12">
-              <VImg :src="linux" />
+              <VImg
+                :src="linux"
+                max-height="10rem"
+              />
             </VCol>
-            <VCol cols="6">
+            <VCol
+              cols="12"
+              md="6"
+            >
               <VCard class="h-100">
                 <VCardText>
-                  <span class="font-weight-medium">
-                    OS INFORMATION
+                  <span>
+                    <b>OS INFORMATION</b> 
                   </span>
 
                   <div
                     v-for="(item, key ) in data.osInformation"
                     :key="key"
-                    class="d-flex flex-row"
+                    class="d-md-flex flex-row d-lg-block"
                   >
-                    {{ key }}: <VSpacer /> {{ item }}
+                    <div class="font-weight-medium">
+                      {{ key }}:
+                    </div> 
+                    <VSpacer /> 
+                    <div>
+                      {{ item }}
+                    </div>
                   </div>
                 </VCardText>
               </VCard>
             </VCol>
-            <VCol cols="6">
+            <VCol
+              cols="12"
+              md="6"
+            >
               <VCard class="h-100">
                 <VCardText>
-                  <span class="font-weight-medium">
-                    SERVER SPECIFICATION
+                  <span>
+                    <b>SERVER SPECIFICATION</b> 
                   </span>
 
                   <div
                     v-for="(item, key ) in data.serverSpecification"
                     :key="key"
-                    class="d-flex flex-row"
+                    class="d-md-flex flex-row d-lg-block"
                   >
-                    {{ key }}: <VSpacer /> {{ item }}
+                    <div class="font-weight-medium">
+                      {{ key.toUpperCase() }}:
+                    </div> 
+                    <VSpacer /> 
+                    <div>
+                      {{ item }}
+                    </div>
                   </div>
                 </VCardText>
               </VCard>
