@@ -23,8 +23,6 @@ const data = ref({
   memoryUsage: await getMemoryUsage(serverId),
   volumes: await getVolumes(serverId),
 })
-
-console.log(data.value.volumes)
 </script>
 
 <template>
@@ -45,7 +43,9 @@ console.log(data.value.volumes)
           <div class="d-flex flex-row align-center">
             <div>
               <span class="font-weight-medium">
-                SERVER ACTIONS
+                <b>
+                  SERVER ACTIONS
+                </b>
               </span>
             </div>
 
@@ -175,13 +175,15 @@ console.log(data.value.volumes)
     <VCol cols="6">
       <VCard>
         <VCardText class="d-flex flex-row">
-          <span class="font-weight-medium">
-            CPU LOAD
+          <span>
+            <b>
+              CPU LOAD
+            </b>
           </span>
 
           <VSpacer />
           <span>
-            {{ data.cpuUsage }}
+            {{ (data.cpuUsage * 100).toFixed(2) }} %
           </span>
         </VCardText>
       </VCard>
@@ -190,12 +192,14 @@ console.log(data.value.volumes)
     <VCol cols="6">
       <VCard>
         <VCardText class="d-flex flex-row">
-          <span class="font-weight-medium">
-            MEMORY
+          <span>
+            <b>
+              MEMORY
+            </b>
           </span>
           <VSpacer />
           <span>
-            {{ data.memoryUsage }}
+            {{ (data.memoryUsage * 100).toFixed(2) }} %
           </span>
         </VCardText>
       </VCard>
@@ -206,10 +210,13 @@ console.log(data.value.volumes)
     <VCol cols="12">
       <VCard>
         <VCardText>
-          <span class="font-weight-medium">
-            VOLUME LIST
+          <span>
+            <b>
+              VOLUME LIST
+            </b>
           </span>
 
+          <VDivider class="mt-3 mb-3" />
           <VDataTable
             :headers="headers"
             :items="data.volumes"

@@ -356,6 +356,8 @@
     "getMemoryUsage": true,
     "getOS": true,
     "getSpecification": true,
-    "getVolumes": true
+    "getVolumes": true,
+    "getDirectory": true,
+    "getDate": true
   }
 }

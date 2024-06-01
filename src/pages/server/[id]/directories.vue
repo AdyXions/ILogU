@@ -1,14 +1,27 @@
 <script setup>
-const router = useRouter()
+import DirectoriesTable from "@/components/directories/directoriesTable.vue"
 
-const headers = [
-  { title: 'File System', key: 'Filesystem' },
-  { title: '1K-Blocks', key: '1K-blocks' },
-  { title: 'Used', key: 'Used' },
-  { title: 'Available', key: 'Available' },
-  { title: 'Use %', key: 'Use%' },
-  { title: 'Mounted On', key: 'Mounted' },
-]
+const router = useRouter()
+const route = useRoute()
+
+const serverId = route.params.id
+
+const user = ref()
+
+const getUser = async () => {
+  try {
+    const response = await $api(`/users/me?fields[]=ssh_tokens.user&filter[ssh_tokens][id][_eq]=${serverId}`, { method: "GET" })
+
+    user.value = response.data.ssh_tokens[0].user
+  } catch (error)  {
+    console.log(error)
+  }
+  
+
+  
+}
+
+await getUser()
 </script>
 
 <template>
@@ -17,6 +30,7 @@ const headers = [
       <div class="d-flex flex-row gap-3">
         <h2
           class="font-weight-medium"
+          style="cursor: pointer;"
           @click="() => {
             router.push('dashboard')
           }"
@@ -33,17 +47,5 @@ const headers = [
     </VCol>
   </VRow>
 
-  <VRow>
-    <VCol>
-      <VCard>
-        <VCardText>
-          <VDataTable
-            :headers="headers"
-            :items-per-page="50"
-            class="text-no-wrap"
-          />
-        </VCardText>
-      </VCard>
-    </VCol>
-  </VRow>
+  <DirectoriesTable :user="user" />
 </template>

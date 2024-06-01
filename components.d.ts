@@ -36,7 +36,10 @@ declare module 'vue' {
     CustomRadios: typeof import('./src/@core/components/app-form-elements/CustomRadios.vue')['default']
     CustomRadiosWithIcon: typeof import('./src/@core/components/app-form-elements/CustomRadiosWithIcon.vue')['default']
     CustomRadiosWithImage: typeof import('./src/@core/components/app-form-elements/CustomRadiosWithImage.vue')['default']
+    DeleteDialog: typeof import('./src/components/dialogs/directory/deleteDialog.vue')['default']
     DialogCloseBtn: typeof import('./src/@core/components/DialogCloseBtn.vue')['default']
+    DirectoriesTable: typeof import('./src/components/directories/directoriesTable.vue')['default']
+    EditDialog: typeof import('./src/components/dialogs/directory/editDialog.vue')['default']
     EnableOneTimePasswordDialog: typeof import('./src/components/dialogs/EnableOneTimePasswordDialog.vue')['default']
     ErrorHeader: typeof import('./src/components/ErrorHeader.vue')['default']
     I18n: typeof import('./src/@core/components/I18n.vue')['default']
@@ -56,5 +59,6 @@ declare module 'vue' {
     TwoFactorAuthDialog: typeof import('./src/components/dialogs/TwoFactorAuthDialog.vue')['default']
     UserInfoEditDialog: typeof import('./src/components/dialogs/UserInfoEditDialog.vue')['default']
     UserUpgradePlanDialog: typeof import('./src/components/dialogs/UserUpgradePlanDialog.vue')['default']
+    ViewDialog: typeof import('./src/components/dialogs/directory/viewDialog.vue')['default']
   }
 }
