@@ -421,10 +421,7 @@ declare module 'vue' {
     readonly getCurrentScope: UnwrapRef<typeof import('vue')['getCurrentScope']>
     readonly getDate: UnwrapRef<typeof import('./src/composables/useTextFormat.js')['getDate']>
     readonly getDirectory: UnwrapRef<typeof import('./src/composables/useDirectories.js')['getDirectory']>
-<<<<<<< HEAD
-=======
     readonly getFile: UnwrapRef<typeof import('./src/composables/useDirectories.js')['getFile']>
->>>>>>> 222d9c50f8da4d4ede8847df2c2e245fb474bde1
     readonly getMemoryUsage: UnwrapRef<typeof import('./src/composables/useSsh.js')['getMemoryUsage']>
     readonly getOS: UnwrapRef<typeof import('./src/composables/useSsh.js')['getOS']>
     readonly getSpecification: UnwrapRef<typeof import('./src/composables/useSsh.js')['getSpecification']>
@@ -779,10 +776,7 @@ declare module '@vue/runtime-core' {
     readonly getCurrentScope: UnwrapRef<typeof import('vue')['getCurrentScope']>
     readonly getDate: UnwrapRef<typeof import('./src/composables/useTextFormat.js')['getDate']>
     readonly getDirectory: UnwrapRef<typeof import('./src/composables/useDirectories.js')['getDirectory']>
-<<<<<<< HEAD
-=======
     readonly getFile: UnwrapRef<typeof import('./src/composables/useDirectories.js')['getFile']>
->>>>>>> 222d9c50f8da4d4ede8847df2c2e245fb474bde1
     readonly getMemoryUsage: UnwrapRef<typeof import('./src/composables/useSsh.js')['getMemoryUsage']>
     readonly getOS: UnwrapRef<typeof import('./src/composables/useSsh.js')['getOS']>
     readonly getSpecification: UnwrapRef<typeof import('./src/composables/useSsh.js')['getSpecification']>

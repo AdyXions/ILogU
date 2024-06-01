@@ -359,13 +359,9 @@
     "getVolumes": true,
     "getDirectory": true,
     "getDate": true,
-<<<<<<< HEAD
-    "healthCheck": true,
-    "getCPURAM": true
-=======
     "getFile": true,
     "renameFile": true,
-    "deleteFile": true
->>>>>>> 222d9c50f8da4d4ede8847df2c2e245fb474bde1
+    "deleteFile": true,
+    "healthCheck": true
   }
 }
