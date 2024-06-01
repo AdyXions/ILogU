@@ -1,5 +1,4 @@
 <script setup>
-
 const router = useRouter()
 
 const Server = ref({
@@ -64,13 +63,7 @@ fetchServers()
       <h2 class="font-weight-medium">
         Home
       </h2>
-      <VBtn
-        color="primary"
-        elevated
-        @click="onAddEdit"
-      >
-        Add Server
-      </VBtn>
+      <AddEditServerDialog />
     </div>
   </VCol>
   
@@ -150,14 +143,6 @@ fetchServers()
       </VCol>
     </VRow>
   </VContainer>
-  <!-- AddEdit Dialog -->
-  <VDialog
-    v-model="AddEditDialog"
-    transition="dialog-top-transition"
-    :max-width="1000"
-  >
-    <AddEditServerDialog @close="onClose" />
-  </VDialog>
 </template>
 
 
