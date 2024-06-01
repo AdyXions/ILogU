@@ -408,8 +408,13 @@ declare module 'vue' {
     readonly formatDate: UnwrapRef<typeof import('./src/@core/utils/formatters.js')['formatDate']>
     readonly formatDateToMonthShort: UnwrapRef<typeof import('./src/@core/utils/formatters.js')['formatDateToMonthShort']>
     readonly getActivePinia: UnwrapRef<typeof import('pinia')['getActivePinia']>
+    readonly getCpuUsage: UnwrapRef<typeof import('./src/composables/useSsh.js')['getCpuUsage']>
     readonly getCurrentInstance: UnwrapRef<typeof import('vue')['getCurrentInstance']>
     readonly getCurrentScope: UnwrapRef<typeof import('vue')['getCurrentScope']>
+    readonly getMemoryUsage: UnwrapRef<typeof import('./src/composables/useSsh.js')['getMemoryUsage']>
+    readonly getOS: UnwrapRef<typeof import('./src/composables/useSsh.js')['getOS']>
+    readonly getSpecification: UnwrapRef<typeof import('./src/composables/useSsh.js')['getSpecification']>
+    readonly getVolumes: UnwrapRef<typeof import('./src/composables/useSsh.js')['getVolumes']>
     readonly h: UnwrapRef<typeof import('vue')['h']>
     readonly ignorableWatch: UnwrapRef<typeof import('@vueuse/core')['ignorableWatch']>
     readonly inject: UnwrapRef<typeof import('vue')['inject']>
@@ -752,8 +757,13 @@ declare module '@vue/runtime-core' {
     readonly formatDate: UnwrapRef<typeof import('./src/@core/utils/formatters.js')['formatDate']>
     readonly formatDateToMonthShort: UnwrapRef<typeof import('./src/@core/utils/formatters.js')['formatDateToMonthShort']>
     readonly getActivePinia: UnwrapRef<typeof import('pinia')['getActivePinia']>
+    readonly getCpuUsage: UnwrapRef<typeof import('./src/composables/useSsh.js')['getCpuUsage']>
     readonly getCurrentInstance: UnwrapRef<typeof import('vue')['getCurrentInstance']>
     readonly getCurrentScope: UnwrapRef<typeof import('vue')['getCurrentScope']>
+    readonly getMemoryUsage: UnwrapRef<typeof import('./src/composables/useSsh.js')['getMemoryUsage']>
+    readonly getOS: UnwrapRef<typeof import('./src/composables/useSsh.js')['getOS']>
+    readonly getSpecification: UnwrapRef<typeof import('./src/composables/useSsh.js')['getSpecification']>
+    readonly getVolumes: UnwrapRef<typeof import('./src/composables/useSsh.js')['getVolumes']>
     readonly h: UnwrapRef<typeof import('vue')['h']>
     readonly ignorableWatch: UnwrapRef<typeof import('@vueuse/core')['ignorableWatch']>
     readonly inject: UnwrapRef<typeof import('vue')['inject']>
