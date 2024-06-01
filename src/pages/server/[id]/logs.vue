@@ -9,6 +9,7 @@ const router = useRouter()
       <div class="d-flex flex-row gap-3">
         <h2
           class="font-weight-medium"
+          style="cursor: pointer;"
           @click="() => {
             router.push('dashboard')
           }"
