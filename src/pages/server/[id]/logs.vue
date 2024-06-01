@@ -8,9 +8,9 @@ const user = ref()
 
 const getUser = async () => {
   try {
-    const response = await $api(`/users/me?fields[]=ssh_tokens.user&filter[ssh_tokens][id][_eq]=${serverId}`, { method: "GET" })
-
-    user.value = response.data.ssh_tokens[0].user
+    const response = await $api(`/items/tokens/${serverId}`, { method: "GET" })
+    
+    user.value = response.data.user
   } catch (error)  {
     console.log(error)
   }

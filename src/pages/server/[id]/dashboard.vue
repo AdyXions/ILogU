@@ -52,7 +52,10 @@ const data = ref({
             <VSpacer />
 
             <div class="d-flex flex-row gap-3 align-center">
-              <VBtn density="compact">
+              <VBtn
+                density="compact"
+                disabled
+              >
                 <VIcon
                   start
                   icon="ri-restart-line"
