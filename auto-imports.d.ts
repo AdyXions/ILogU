@@ -44,6 +44,7 @@ declare global {
   const defineLoader: typeof import('vue-router/auto')['defineLoader']
   const definePage: typeof import('unplugin-vue-router/runtime')['_definePage']
   const defineStore: typeof import('pinia')['defineStore']
+  const deleteFile: typeof import('./src/composables/useDirectories.js')['deleteFile']
   const eagerComputed: typeof import('@vueuse/core')['eagerComputed']
   const effectScope: typeof import('vue')['effectScope']
   const emailValidator: typeof import('./src/@core/utils/validators.js')['emailValidator']
@@ -57,6 +58,7 @@ declare global {
   const getCurrentScope: typeof import('vue')['getCurrentScope']
   const getDate: typeof import('./src/composables/useTextFormat.js')['getDate']
   const getDirectory: typeof import('./src/composables/useDirectories.js')['getDirectory']
+  const getFile: typeof import('./src/composables/useDirectories.js')['getFile']
   const getMemoryUsage: typeof import('./src/composables/useSsh.js')['getMemoryUsage']
   const getOS: typeof import('./src/composables/useSsh.js')['getOS']
   const getSpecification: typeof import('./src/composables/useSsh.js')['getSpecification']
@@ -130,6 +132,7 @@ declare global {
   const refWithControl: typeof import('@vueuse/core')['refWithControl']
   const regexValidator: typeof import('./src/@core/utils/validators.js')['regexValidator']
   const registerPlugins: typeof import('./src/@core/utils/plugins.js')['registerPlugins']
+  const renameFile: typeof import('./src/composables/useDirectories.js')['renameFile']
   const requiredValidator: typeof import('./src/@core/utils/validators.js')['requiredValidator']
   const resolveComponent: typeof import('vue')['resolveComponent']
   const resolveRef: typeof import('@vueuse/core')['resolveRef']
@@ -405,6 +408,7 @@ declare module 'vue' {
     readonly defineLoader: UnwrapRef<typeof import('vue-router/auto')['defineLoader']>
     readonly definePage: UnwrapRef<typeof import('unplugin-vue-router/runtime')['_definePage']>
     readonly defineStore: UnwrapRef<typeof import('pinia')['defineStore']>
+    readonly deleteFile: UnwrapRef<typeof import('./src/composables/useDirectories.js')['deleteFile']>
     readonly eagerComputed: UnwrapRef<typeof import('@vueuse/core')['eagerComputed']>
     readonly effectScope: UnwrapRef<typeof import('vue')['effectScope']>
     readonly emailValidator: UnwrapRef<typeof import('./src/@core/utils/validators.js')['emailValidator']>
@@ -417,6 +421,10 @@ declare module 'vue' {
     readonly getCurrentScope: UnwrapRef<typeof import('vue')['getCurrentScope']>
     readonly getDate: UnwrapRef<typeof import('./src/composables/useTextFormat.js')['getDate']>
     readonly getDirectory: UnwrapRef<typeof import('./src/composables/useDirectories.js')['getDirectory']>
+<<<<<<< HEAD
+=======
+    readonly getFile: UnwrapRef<typeof import('./src/composables/useDirectories.js')['getFile']>
+>>>>>>> 222d9c50f8da4d4ede8847df2c2e245fb474bde1
     readonly getMemoryUsage: UnwrapRef<typeof import('./src/composables/useSsh.js')['getMemoryUsage']>
     readonly getOS: UnwrapRef<typeof import('./src/composables/useSsh.js')['getOS']>
     readonly getSpecification: UnwrapRef<typeof import('./src/composables/useSsh.js')['getSpecification']>
@@ -490,6 +498,7 @@ declare module 'vue' {
     readonly refWithControl: UnwrapRef<typeof import('@vueuse/core')['refWithControl']>
     readonly regexValidator: UnwrapRef<typeof import('./src/@core/utils/validators.js')['regexValidator']>
     readonly registerPlugins: UnwrapRef<typeof import('./src/@core/utils/plugins.js')['registerPlugins']>
+    readonly renameFile: UnwrapRef<typeof import('./src/composables/useDirectories.js')['renameFile']>
     readonly requiredValidator: UnwrapRef<typeof import('./src/@core/utils/validators.js')['requiredValidator']>
     readonly resolveComponent: UnwrapRef<typeof import('vue')['resolveComponent']>
     readonly resolveRef: UnwrapRef<typeof import('@vueuse/core')['resolveRef']>
@@ -757,6 +766,7 @@ declare module '@vue/runtime-core' {
     readonly defineLoader: UnwrapRef<typeof import('vue-router/auto')['defineLoader']>
     readonly definePage: UnwrapRef<typeof import('unplugin-vue-router/runtime')['_definePage']>
     readonly defineStore: UnwrapRef<typeof import('pinia')['defineStore']>
+    readonly deleteFile: UnwrapRef<typeof import('./src/composables/useDirectories.js')['deleteFile']>
     readonly eagerComputed: UnwrapRef<typeof import('@vueuse/core')['eagerComputed']>
     readonly effectScope: UnwrapRef<typeof import('vue')['effectScope']>
     readonly emailValidator: UnwrapRef<typeof import('./src/@core/utils/validators.js')['emailValidator']>
@@ -769,6 +779,10 @@ declare module '@vue/runtime-core' {
     readonly getCurrentScope: UnwrapRef<typeof import('vue')['getCurrentScope']>
     readonly getDate: UnwrapRef<typeof import('./src/composables/useTextFormat.js')['getDate']>
     readonly getDirectory: UnwrapRef<typeof import('./src/composables/useDirectories.js')['getDirectory']>
+<<<<<<< HEAD
+=======
+    readonly getFile: UnwrapRef<typeof import('./src/composables/useDirectories.js')['getFile']>
+>>>>>>> 222d9c50f8da4d4ede8847df2c2e245fb474bde1
     readonly getMemoryUsage: UnwrapRef<typeof import('./src/composables/useSsh.js')['getMemoryUsage']>
     readonly getOS: UnwrapRef<typeof import('./src/composables/useSsh.js')['getOS']>
     readonly getSpecification: UnwrapRef<typeof import('./src/composables/useSsh.js')['getSpecification']>
@@ -842,6 +856,7 @@ declare module '@vue/runtime-core' {
     readonly refWithControl: UnwrapRef<typeof import('@vueuse/core')['refWithControl']>
     readonly regexValidator: UnwrapRef<typeof import('./src/@core/utils/validators.js')['regexValidator']>
     readonly registerPlugins: UnwrapRef<typeof import('./src/@core/utils/plugins.js')['registerPlugins']>
+    readonly renameFile: UnwrapRef<typeof import('./src/composables/useDirectories.js')['renameFile']>
     readonly requiredValidator: UnwrapRef<typeof import('./src/@core/utils/validators.js')['requiredValidator']>
     readonly resolveComponent: UnwrapRef<typeof import('vue')['resolveComponent']>
     readonly resolveRef: UnwrapRef<typeof import('@vueuse/core')['resolveRef']>
