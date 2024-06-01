@@ -1,6 +1,9 @@
 <script setup>
 import { ref } from 'vue'
 
+
+const router = useRouter()
+
 const Server = ref({
   id: null,
   hostname: null,
@@ -28,80 +31,33 @@ const onClose = () => {
   AddEditDialog.value = false
 }
 
-const items = ref([
-  { 
-    icon: 'ri-server-fill', 
-    name: 'Server 1', 
-    healthCheck: 'Healthy', 
-    lastHealthCheck: '2024-06-01 10:00', 
-    tags: ['Production', 'Critical'], 
-    specs: '16GB RAM, 4 CPUs', 
-  },
-  { 
-    icon: 'ri-server-fill', 
-    name: 'Server 2', 
-    healthCheck: 'Unhealthy', 
-    lastHealthCheck: '2024-06-01 09:30', 
-    tags: ['Staging'], 
-    specs: '8GB RAM, 2 CPUs', 
-  },
-  { 
-    icon: 'ri-server-fill', 
-    name: 'Server 3', 
-    healthCheck: 'Healthy', 
-    lastHealthCheck: '2024-06-01 10:05', 
-    tags: ['Development'], 
-    specs: '4GB RAM, 2 CPUs', 
-  },
-  { 
-    icon: 'ri-server-fill', 
-    name: 'Server 4', 
-    healthCheck: 'Healthy', 
-    lastHealthCheck: '2024-06-01 10:00', 
-    tags: ['Production', 'Critical'], 
-    specs: '16GB RAM, 4 CPUs', 
-  },
-  { 
-    icon: 'ri-server-fill', 
-    name: 'Server 5', 
-    healthCheck: 'Unhealthy', 
-    lastHealthCheck: '2024-06-01 09:30', 
-    tags: ['Staging'], 
-    specs: '8GB RAM, 2 CPUs', 
-  },
-  { 
-    icon: 'ri-server-fill', 
-    name: 'Server 6', 
-    healthCheck: 'Healthy', 
-    lastHealthCheck: '2024-06-01 10:05', 
-    tags: ['Development'], 
-    specs: '4GB RAM, 2 CPUs', 
-  },
-  { 
-    icon: 'ri-server-fill', 
-    name: 'Server 7', 
-    healthCheck: 'Healthy', 
-    lastHealthCheck: '2024-06-01 10:00', 
-    tags: ['Production', 'Critical'], 
-    specs: '16GB RAM, 4 CPUs', 
-  },
-  { 
-    icon: 'ri-server-fill', 
-    name: 'Server 8', 
-    healthCheck: 'Unhealthy', 
-    lastHealthCheck: '2024-06-01 09:30', 
-    tags: ['Staging'], 
-    specs: '8GB RAM, 2 CPUs', 
-  },
-  { 
-    icon: 'ri-server-fill', 
-    name: 'Server 9', 
-    healthCheck: 'Healthy', 
-    lastHealthCheck: '2024-06-01 10:05', 
-    tags: ['Development'], 
-    specs: '4GB RAM, 2 CPUs', 
-  },
-])
+const items = ref([])
+
+
+const fetchServers = async () => {
+  try {
+    const response = await $api('/users/me', {
+      method: 'GET',
+      params: {
+        fields: ['ssh_tokens.*', 'ssh_tokens.tags.*'],
+      },
+    })
+
+    console.log(response.data.ssh_tokens)
+
+    items.value = response.data.ssh_tokens.map(item => ({
+      id: item.id,
+      icon: 'ri-server-fill',
+      name: item.server_name,
+      lastHealthCheck: new Date().toLocaleString('en-US', { month: '2-digit', day: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' }),
+      tags: item.tags,
+    }))
+  } catch (e) {
+    console.log(e)
+  }
+}
+
+fetchServers()
 </script>
 
 <template>
@@ -123,12 +79,13 @@ const items = ref([
   
   
   <VContainer>
-    <VRow>
+    <VRow v-if="items.length > 0">
       <VCol
         v-for="(item, index) in items"
         :key="index"
         cols="12"
-        md="4"
+        lg="4"
+        md="6"
       >
         <VHover v-slot="{ isHovering, props }">
           <VCard
@@ -137,6 +94,8 @@ const items = ref([
             :elevation="isHovering ? 16 : 2"
             class="mx-auto"
             v-bind="props"
+            style="cursor: pointer;"
+            @click="router.push('/server/' + item.id + '/dashboard')"
           >
             <VCardText>
               <VRow>
@@ -151,17 +110,20 @@ const items = ref([
                     <div>
                       {{ item.name }}
                     </div>
+                    <VDivider class="my-3" />
+                    <VChip
+                      size="x-small"
+                      :color="healthCheck(item.id) ? 'success' : 'error'"
+                    >
+                      {{ healthCheck(item.id) ? 'Healthy' : 'Down' }}
+                    </VChip>
                   </div>
                 </VCol>
 
                 <VCol cols="8">
                   <VRow>
-                    <VCol cols="5">
-                      <VChip size="x-small">
-                        {{ item.healthCheck }}
-                      </VChip>
-                    </VCol>
-                    <VCol cols="7">
+                    <VCol class="d-flex align-center">
+                      <VIcon icon="ri-time-line" />
                       <i> {{ item.lastHealthCheck }}</i>
                     </VCol>
                   </VRow>
@@ -170,12 +132,16 @@ const items = ref([
                       <VIcon>
                         ri-price-tag-3-line
                       </VIcon> 
-                      {{ item.tags.join(', ') }}
+                      {{ item.tags.length > 0 ? item.tags.join(', ') : 'No tags' }}
                     </VCol>
                   </VRow>
                   <VRow>
-                    <VCol cols="12">
-                      <div> {{ item.specs }}</div>
+                    <VCol
+                      cols="12"
+                      class="d-flex align-center"
+                    >
+                      <VIcon icon="ri-file-list-line" />
+                      <div> Hello</div>
                     </VCol>
                   </VRow>
                 </VCol>

@@ -358,6 +358,8 @@
     "getSpecification": true,
     "getVolumes": true,
     "getDirectory": true,
-    "getDate": true
+    "getDate": true,
+    "healthCheck": true,
+    "getCPURAM": true
   }
 }

@@ -111,3 +111,23 @@ export const getVolumes = async serverId => {
     return entry
   })
 }
+
+
+export const healthCheck = async serverId => {
+  try{
+    const response = await $api('/ssh', {
+      method: 'POST',
+      header: {
+        'Content-Type': "application/json",
+      },
+      body: JSON.stringify({
+        "command": "ls",
+        "server_id": serverId,
+      }),
+    })
+    
+    return true
+  } catch(error){
+    return false
+  }
+}
