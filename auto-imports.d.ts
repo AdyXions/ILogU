@@ -51,8 +51,13 @@ declare global {
   const formatDate: typeof import('./src/@core/utils/formatters.js')['formatDate']
   const formatDateToMonthShort: typeof import('./src/@core/utils/formatters.js')['formatDateToMonthShort']
   const getActivePinia: typeof import('pinia')['getActivePinia']
+  const getCpuUsage: typeof import('./src/composables/useSsh.js')['getCpuUsage']
   const getCurrentInstance: typeof import('vue')['getCurrentInstance']
   const getCurrentScope: typeof import('vue')['getCurrentScope']
+  const getMemoryUsage: typeof import('./src/composables/useSsh.js')['getMemoryUsage']
+  const getOS: typeof import('./src/composables/useSsh.js')['getOS']
+  const getSpecification: typeof import('./src/composables/useSsh.js')['getSpecification']
+  const getVolumes: typeof import('./src/composables/useSsh.js')['getVolumes']
   const h: typeof import('vue')['h']
   const ignorableWatch: typeof import('@vueuse/core')['ignorableWatch']
   const inject: typeof import('vue')['inject']
@@ -403,8 +408,13 @@ declare module 'vue' {
     readonly formatDate: UnwrapRef<typeof import('./src/@core/utils/formatters.js')['formatDate']>
     readonly formatDateToMonthShort: UnwrapRef<typeof import('./src/@core/utils/formatters.js')['formatDateToMonthShort']>
     readonly getActivePinia: UnwrapRef<typeof import('pinia')['getActivePinia']>
+    readonly getCpuUsage: UnwrapRef<typeof import('./src/composables/useSsh.js')['getCpuUsage']>
     readonly getCurrentInstance: UnwrapRef<typeof import('vue')['getCurrentInstance']>
     readonly getCurrentScope: UnwrapRef<typeof import('vue')['getCurrentScope']>
+    readonly getMemoryUsage: UnwrapRef<typeof import('./src/composables/useSsh.js')['getMemoryUsage']>
+    readonly getOS: UnwrapRef<typeof import('./src/composables/useSsh.js')['getOS']>
+    readonly getSpecification: UnwrapRef<typeof import('./src/composables/useSsh.js')['getSpecification']>
+    readonly getVolumes: UnwrapRef<typeof import('./src/composables/useSsh.js')['getVolumes']>
     readonly h: UnwrapRef<typeof import('vue')['h']>
     readonly ignorableWatch: UnwrapRef<typeof import('@vueuse/core')['ignorableWatch']>
     readonly inject: UnwrapRef<typeof import('vue')['inject']>
@@ -534,7 +544,6 @@ declare module 'vue' {
     readonly useCeil: UnwrapRef<typeof import('@vueuse/math')['useCeil']>
     readonly useClamp: UnwrapRef<typeof import('@vueuse/math')['useClamp']>
     readonly useClipboard: UnwrapRef<typeof import('@vueuse/core')['useClipboard']>
-    readonly useClipboardItems: UnwrapRef<typeof import('@vueuse/core')['useClipboardItems']>
     readonly useCloned: UnwrapRef<typeof import('@vueuse/core')['useCloned']>
     readonly useColorMode: UnwrapRef<typeof import('@vueuse/core')['useColorMode']>
     readonly useConfirmDialog: UnwrapRef<typeof import('@vueuse/core')['useConfirmDialog']>
@@ -748,8 +757,13 @@ declare module '@vue/runtime-core' {
     readonly formatDate: UnwrapRef<typeof import('./src/@core/utils/formatters.js')['formatDate']>
     readonly formatDateToMonthShort: UnwrapRef<typeof import('./src/@core/utils/formatters.js')['formatDateToMonthShort']>
     readonly getActivePinia: UnwrapRef<typeof import('pinia')['getActivePinia']>
+    readonly getCpuUsage: UnwrapRef<typeof import('./src/composables/useSsh.js')['getCpuUsage']>
     readonly getCurrentInstance: UnwrapRef<typeof import('vue')['getCurrentInstance']>
     readonly getCurrentScope: UnwrapRef<typeof import('vue')['getCurrentScope']>
+    readonly getMemoryUsage: UnwrapRef<typeof import('./src/composables/useSsh.js')['getMemoryUsage']>
+    readonly getOS: UnwrapRef<typeof import('./src/composables/useSsh.js')['getOS']>
+    readonly getSpecification: UnwrapRef<typeof import('./src/composables/useSsh.js')['getSpecification']>
+    readonly getVolumes: UnwrapRef<typeof import('./src/composables/useSsh.js')['getVolumes']>
     readonly h: UnwrapRef<typeof import('vue')['h']>
     readonly ignorableWatch: UnwrapRef<typeof import('@vueuse/core')['ignorableWatch']>
     readonly inject: UnwrapRef<typeof import('vue')['inject']>
@@ -879,7 +893,6 @@ declare module '@vue/runtime-core' {
     readonly useCeil: UnwrapRef<typeof import('@vueuse/math')['useCeil']>
     readonly useClamp: UnwrapRef<typeof import('@vueuse/math')['useClamp']>
     readonly useClipboard: UnwrapRef<typeof import('@vueuse/core')['useClipboard']>
-    readonly useClipboardItems: UnwrapRef<typeof import('@vueuse/core')['useClipboardItems']>
     readonly useCloned: UnwrapRef<typeof import('@vueuse/core')['useCloned']>
     readonly useColorMode: UnwrapRef<typeof import('@vueuse/core')['useColorMode']>
     readonly useConfirmDialog: UnwrapRef<typeof import('@vueuse/core')['useConfirmDialog']>

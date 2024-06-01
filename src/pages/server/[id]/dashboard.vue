@@ -1,7 +1,11 @@
 <script setup>
+import { getCpuUsage, getMemoryUsage, getOS, getSpecification, getVolumes } from '@/composables/useSsh'
 import linux from '@images/avatars/linux.png'
 
 const router = useRouter()
+const route = useRoute()
+
+const serverId = route.params.id
 
 const headers = [
   { title: 'File System', key: '' },
@@ -13,28 +17,12 @@ const headers = [
 ]
 
 const data = ref({
-  osInformation: null,
-  serverSpecification: null,
-
+  osInformation: await getOS(serverId),
+  serverSpecification: await getSpecification(serverId),
+  cpuUsage: await getCpuUsage(serverId),
+  memoryUsage: await getMemoryUsage(serverId),
+  volumes: await getVolumes(serverId),
 })
-
-const getData = async () => {
-  const response = await $api('/ssh', {
-    method: 'POST',
-    header: {
-      'Content-Type': "application/json",
-    },
-    body: JSON.stringify({
-      "command": "cat /etc/os-release",
-    }),
-    redirect: "follow",
-  })
-
-  data.value.osInformation =  (await response.text()).split('\n').map(item => item.split("=")).slice(0, 8)
-  
-}
-
-await getData()
 </script>
 
 <template>
