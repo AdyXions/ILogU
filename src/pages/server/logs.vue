@@ -1,3 +1,0 @@
-<template>
-  Logs Placeholder
-</template>
