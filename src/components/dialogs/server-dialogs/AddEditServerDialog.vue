@@ -1,6 +1,4 @@
 <script setup>
-import { VForm } from 'vuetify/lib/components/VForm/index.mjs'
-
 const emit = defineEmits()
 
 const selectedRadio = ref('Password')
@@ -73,10 +71,13 @@ const close = () => {
             horizontal
           >
             <VRadio
-              v-for="item in ['Password', 'Private Key']"
-              :key="item"
-              :label="item"
-              :value="item"
+              label="Password"
+              value="Password"
+            />
+            <VRadio
+              label="Private Key"
+              value="Private Key"
+              disabled
             />
           </VRadioGroup>
         </VCol>
