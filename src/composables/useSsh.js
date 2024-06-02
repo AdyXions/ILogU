@@ -131,3 +131,22 @@ export const healthCheck = async serverId => {
     return false
   }
 }
+
+export const consoleCommand = async (serverId, command) => {
+  try{
+    const response = await $api('/ssh', {
+      method: 'POST',
+      header: {
+        'Content-Type': "application/json",
+      },
+      body: JSON.stringify({
+        "command": command,
+        "server_id": serverId,
+      }),
+    })
+    
+    return (await response.text())
+  } catch(error){
+    return false
+  }
+}
