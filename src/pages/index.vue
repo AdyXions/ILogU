@@ -86,6 +86,7 @@ fetchServers()
             class="mx-auto"
             v-bind="props"
             style="cursor: pointer;"
+            height="10rem"
             @click="router.push('/server/' + item.id + '/dashboard')"
           >
             <VCardText>
@@ -123,7 +124,7 @@ fetchServers()
                       <VIcon>
                         ri-price-tag-3-line
                       </VIcon> 
-                      {{ item.tags.length > 0 ? item.tags.join(', ') : 'No tags' }}
+                      {{ item.tags ? item.tags.join(', ') : 'No tags' }}
                     </VCol>
                   </VRow>
                   <VRow>

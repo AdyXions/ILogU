@@ -3,14 +3,34 @@ const selectedRadio = ref('Password')
 
 const dialog = ref(false)
 
-
 const content = ref({
   hostname: '',
   port: '',
   user: '',
   tags: [],
   password: '',
+  server_name: '',
 })
+
+const save = async () => {
+  try{
+    const response = await $api('/items/tokens', {
+      method: 'POST', 
+      body: JSON.stringify({
+        server_name: content.value.server_name,
+        user: content.value.user,
+        password: content.value.password,
+        hostname: content.value.hostname,
+        port: content.value.port,
+        tags: content.value.tags,
+      }),
+    })
+
+    console.log(response)
+  }catch(e){
+    console.log(e)
+  }
+}
 </script>
 
 <template>
@@ -28,6 +48,12 @@ const content = ref({
         </VCardTitle>
         <VCardText>
           <VRow>
+            <VCol cols="12">
+              <VTextField
+                v-model="content.server_name"
+                label="Server Name"
+              />
+            </VCol>
             <VCol cols="12">
               <VTextField
                 v-model="content.hostname"
@@ -101,7 +127,7 @@ const content = ref({
           >
             Save
           </VBtn>
-          <VBtn @click="close">
+          <VBtn @click="dialog = false">
             Cancel
           </VBtn>
         </VCardActions>

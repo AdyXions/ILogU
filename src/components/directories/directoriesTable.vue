@@ -1,9 +1,9 @@
 <script setup>
+import DeleteDialog from "@/components/dialogs/directory/deleteDialog.vue"
+import EditDialog from "@/components/dialogs/directory/editDialog.vue"
+import ViewDialog from "@/components/dialogs/directory/viewDialog.vue"
 import { getDirectory } from "@/composables/useDirectories"
 import { getDate } from "@/composables/useTextFormat"
-import ViewDialog from "@/components/dialogs/directory/viewDialog.vue"
-import EditDialog from "@/components/dialogs/directory/editDialog.vue"
-import DeleteDialog from  "@/components/dialogs/directory/deleteDialog.vue"
 
 const props = defineProps({
   user: {
@@ -11,6 +11,8 @@ const props = defineProps({
     required: true,
   },
 })
+
+const changePermissionDialog = ref(false)
 
 const route = useRoute()
 
@@ -68,6 +70,13 @@ const onClose = () => {
   viewLog.value = false
   editLog.value = false
   deleteLog.value = false
+  changePermissionDialog.value = false
+  onUpdate()
+}
+
+const onChangePermission = item => {
+  selectedFile.value = item
+  changePermissionDialog.value = true
 }
 
 const onUpdate = async () => {
@@ -155,6 +164,16 @@ const onUpdate = async () => {
                       </template>
                       <VListItemTitle>Delete</VListItemTitle>
                     </VListItem>
+
+                    <VListItem
+                      link
+                      @click="onChangePermission(item.name)"
+                    >
+                      <template #prepend>
+                        <VIcon icon="ri-folder-lock-line" />
+                      </template>
+                      <VListItemTitle>Change Permission</VListItemTitle>
+                    </VListItem>
                   </VList>
                 </VMenu>
               </div>
@@ -219,6 +238,19 @@ const onUpdate = async () => {
       :file-name="selectedFile"
       @close="onClose"
       @update="onUpdate"
+    />
+  </VDialog>
+
+
+  <VDialog
+    v-model="changePermissionDialog"
+    :max-width="300"
+  >
+    <ChangePermission
+      :id="parseInt(serverId)"
+      :item="selectedFile"
+      :query="query"
+      @done="onClose"
     />
   </VDialog>
 </template>
